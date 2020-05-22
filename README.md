@@ -27,15 +27,6 @@ It requires either C++ 11, 14 or 17 and the pthreads library. Support for Window
 Simplx is open-sourced under the Apache 2.0 license, please see the [accompanying License](./LICENSE).  
 
 
-## Enterprise License
-
-If you have a commercial enterprise license with us, including appropriate github access credentials, you may fetch those components with:
-
-```
-git submodule update --init enterprise
-```
-
-
 ## Getting Started
 
 About a dozen tutorials are included here, please see the [Tutorials README](./tutorials/README.md).
@@ -88,4 +79,3 @@ To generate the documentation, open a terminal at the repository root and type
 ```
 doxygen doc/Doxyfile
 ```
-
