@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <iostream>
 
-#include "../include/simplx.h"
+#include "simplx.h"
 
 using namespace std;
 using namespace tredzone;
