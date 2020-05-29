@@ -43,17 +43,18 @@ public:
     T_owner(T&& t)
         : m_Owned(std::move(t))
     {
-            
     }
     
     ~T_owner()
     {   // has been manually released?
         assert(!m_Owned.get());
+        
+        // nothing to do here
     }
     
     void    Destroy(void)
     {
-        // wasn't already released?
+        // mwasn't already released?
         assert(m_Owned.get());
 
         m_Owned.release();
@@ -66,6 +67,7 @@ private:
 
 void do_op(T* data)
 {
+    // nop
     (void)data;
 }
 
