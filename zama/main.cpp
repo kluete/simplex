@@ -36,16 +36,16 @@ using owning_pointer = T*;
 //---- T owner/custodian -------------------------------------------------------
 
 template <class T>
-class T_owner
+class owner
 {
 public:
     // ctor
-    T_owner(T&& t)
-        : m_Owned(std::move(t))
+    owner(T *t)
+        : m_Owned(t)
     {
     }
     
-    ~T_owner()
+    ~owner()
     {   // has been manually released?
         assert(!m_Owned.get());
         
@@ -57,7 +57,9 @@ public:
         // mwasn't already released?
         assert(m_Owned.get());
 
-        m_Owned.release();
+        // m_Owned->release();
+        
+        m_Owned.reset();
     }
         
 private:
@@ -74,6 +76,8 @@ void do_op(T* data)
 int main(int argc, char **argv)
 {
     T* data = acquire_resource();
+    
+    owner<T> o(data);
 
     auto workers = vector<thread>();
 
