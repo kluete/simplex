@@ -29,27 +29,34 @@ T* acquire_resource(void)
 /*
 template <class T>
 using owning_pointer = T*;
+
+// wrt to the above I recomend explicit method forwarding through function (even though there may be many) over a blanket pass-thru template
 */
 
+//---- T owner/custodian -------------------------------------------------------
+
 template <class T>
-class T_wrapper
+class T_owner
 {
 public:
     // ctor
-    T_wrapper(T&& t)
+    T_owner(T&& t)
         : m_Owned(std::move(t))
     {
             
     }
     
-    ~T_wrapper()
-    {
-        
+    ~T_owner()
+    {   // has been manually released?
+        assert(!m_Owned.get());
     }
     
     void    Destroy(void)
     {
-        // delete m_Owned
+        // wasn't already released?
+        assert(m_Owned.get());
+
+        m_Owned.release();
     }
         
 private:
