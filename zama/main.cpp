@@ -67,24 +67,45 @@ private:
     unique_ptr<T>   m_Owned;
 };
 
-void do_op(T* data)
+using owned_data = owner<T>;
+
+//---- output interface --------------------------------------------------------
+
+class IThreadOutput
+{
+public:
+
+    IThreadOutput()
+    {
+    }
+
+private:
+
+};
+    
+//---- dummy data op -----------------------------------------------------------
+
+void do_op(const owned_data &data_in, IThreadOutput &iout)
 {
     // nop
-    (void)data;
+    (void)data_in;
+    (void)iout;
 }
+
+//---- MAIN --------------------------------------------------------------------
 
 int main(int argc, char **argv)
 {
-    T* data = acquire_resource();
-    
-    owner<T> o(data);
+    owned_data      data_in(acquire_resource());
+    IThreadOutput   data_out;
 
-    auto workers = vector<thread>();
+    vector<thread>  workers = vector<thread>();
 
     // create a couple worker threads
     for (int i = 0; i < 2; i++)
     {
-        workers.emplace_back(do_op, data);
+        //workers.emplace_back({do_op, data_in, data_out});
+        workers.emplace_back(thread{do_op, data_in, data_out});
     };
 
     for (auto &w : workers)
@@ -94,10 +115,3 @@ int main(int argc, char **argv)
 
     return 0; 
 }
-/*
-{
-	cout << "hello world" << endl;
-    
-	return 0;
-}
-*/
