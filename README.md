@@ -16,7 +16,7 @@ Tredzone was founded in 2013 and operated in France, the UK and US.
 This code has been built and unit-tested on Linux with:
 
 - Linux kernel 2.6+
-- g++ versions 4.9.4, 5.5, 6.4 and 7.3
+- g++ versions 4.9.4, 5.5, 6.4, 7.3 and 8.3
 - clang++ 3.9.1 with the libstdc++ runtime
 
 It requires either C++ 11, 14 or 17 and the pthreads library. Support for Windows/VisualC++ will be announced soon.
