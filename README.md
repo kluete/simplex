@@ -2,11 +2,11 @@
 
 Simplx is a C++ development framework for building reliable cache-friendly distributed and concurrent multicore software.
 
-Simplx was developed by **Tredzone SAS (\*)**. We provide software technology solutions and services dedicated to high-performance real-time processing. Our technology enables low and predictable latency, scalability, and high throughput. We also offer support contracts and enterprise tools for monitoring, profiling, debugging, server clustering under commercial licenses.
+Simplx was developed by **Tredzone SAS (\*)**, who provided software technology solutions and services dedicated to high-performance real-time processing. The technology enables low and predictable latency, scalability, and high throughput. Tredzone also offered support contracts and enterprise tools for monitoring, profiling, debugging, server clustering under commercial licenses.
 
 Simplx is used at the Paris stock exchange by Euronext's market exchange platform, called "Optiq", and has been successfully deployed since November 2016.
 
-Tredzone was founded in 2013 and operates in France, the UK and US.
+Tredzone was founded in 2013 and operated in France, the UK and US.
 
 (*) company ceased operations in June 2019
 
